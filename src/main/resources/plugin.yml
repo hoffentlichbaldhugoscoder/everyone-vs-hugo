@@ -1,0 +1,9 @@
+name: everyone-vs-hugo
+author: Toby
+version: 1.0-SNAPSHOT
+api-version: 1.19
+main: de.toby.everyonevshugo.EveryoneVsHugo
+
+libraries:
+  - "net.axay:kspigot:1.19.0"
+  - "net.kyori:adventure-api:4.11.0"
