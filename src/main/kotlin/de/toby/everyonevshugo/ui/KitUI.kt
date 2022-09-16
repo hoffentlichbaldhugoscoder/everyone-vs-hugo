@@ -4,6 +4,7 @@ import de.toby.everyonevshugo.game.Game
 import de.toby.everyonevshugo.game.implementation.Lobby
 import de.toby.everyonevshugo.kit.Kit
 import de.toby.everyonevshugo.kit.KitManager
+import de.toby.everyonevshugo.kit.KitSettings
 import de.toby.everyonevshugo.team.TeamManager.getTeam
 import de.toby.everyonevshugo.user.user
 import net.axay.kspigot.chat.literalText
@@ -44,7 +45,7 @@ object KitUI {
                 meta { name = literalText() }
             })
 
-            val compound = createRectCompound<Kit>(
+            val compound = createRectCompound<Kit<KitSettings>>(
                 Slots.RowTwoSlotTwo,
                 Slots.RowFourSlotEight,
                 iconGenerator = { kit(player, it) },
@@ -74,7 +75,7 @@ object KitUI {
         }
     }
 
-    private fun kit(player: Player, kit: Kit) = itemStack(Material.IRON_SWORD) {
+    private fun kit(player: Player, kit: Kit<KitSettings>) = itemStack(Material.IRON_SWORD) {
         meta {
             name = literalText("${ChatColor.AQUA}${kit.name}")
             addLore {
