@@ -6,7 +6,7 @@ abstract class Properties(val path: String? = null, val name: String) {
 
     fun <T : Any?> value(default: T) = object : Delegate<T>(name, path ?: "", default) {}
 
-    abstract class Delegate<T : Any?>(name: String, path: String, private val default: T) : Config(path, name) {
+    abstract class Delegate<T : Any?>(name: String, path: String, val default: T) : Config(path, name) {
         var value: T? = null
 
         operator fun setValue(thisRef: Any?, property: KProperty<*>, newValue: T) {
