@@ -33,7 +33,10 @@ object KitUI {
 
     fun enable() {
         listen<PlayerInteractEvent> {
-            if (it.item?.isSimilar(item) == true) it.player.performCommand("kits")
+            if (it.item?.isSimilar(item) == true) {
+                it.player.performCommand("kits")
+                it.isCancelled = true
+            }
         }
     }
 

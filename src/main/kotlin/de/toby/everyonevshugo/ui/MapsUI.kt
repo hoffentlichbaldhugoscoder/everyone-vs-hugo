@@ -29,7 +29,10 @@ object MapsUI {
 
     fun enable() {
         listen<PlayerInteractEvent> {
-            if (it.item?.isSimilar(item) == true) it.player.performCommand("maps")
+            if (it.item?.isSimilar(item) == true) {
+                it.player.performCommand("maps")
+                it.isCancelled = true
+            }
         }
     }
 

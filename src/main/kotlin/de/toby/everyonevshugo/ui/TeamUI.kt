@@ -25,7 +25,10 @@ object TeamUI {
 
     fun enable() {
         listen<PlayerInteractEvent> {
-            if (it.item?.isSimilar(item) == true) it.player.performCommand("teams")
+            if (it.item?.isSimilar(item) == true) {
+                it.player.performCommand("teams")
+                it.isCancelled = true
+            }
         }
     }
 
